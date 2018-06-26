@@ -3,3 +3,9 @@
   margin: 10%;
   width: 50%;
 }
+
+#formStyle {
+  text-align: center;
+  justify-content: space-between;
+
+}

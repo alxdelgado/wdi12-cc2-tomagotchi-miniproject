@@ -8,13 +8,13 @@ console.log('JS is working');
 
 
 
-/// Create pet class /// 
+/// CREATE CHARACTER CLASS /// 
 
-class MyPet {
-  constructor (name, sleepiness, boredom, hunger, age){
+class MyCharacter {
+  constructor (name, sleepiness, play, hunger, age){
     this.name = name;
     this.sleepiness = sleepiness;
-    this.boredom = boredom;
+    this.play = play;
     this.hunger = hunger;
     this.age = age;
   }
@@ -46,16 +46,16 @@ class MyPet {
 
   }
 
-  boredomDecrease(){
+  playIncrease(){
     // this.setInterval([2000]); 
-    console.log(this.boredom); 
+    console.log(this.play); 
     // this.boredom--
     // if(this.boredom === 0){
     //   window.alert('deceased');
     // }
   }
 
-  hungerDecrease(){
+  hungerIncrease(){
     // this.setInterval([2000]);
     console.log(this.hunger);
     // this.hunger--
@@ -67,31 +67,35 @@ class MyPet {
 
 };
 
-const blueGlaucus = new MyPet('blueGlaucus', 10, 10, 10, 0);
+const maChao = new MyCharacter('maChao', 0, 0, 0, 0);
 
-console.log(blueGlaucus);
+// console.log(maChao);
 
-/// Create pet class ///
+/// CREATE CHARACTER CLASS ///
 
 
-/// Create event listeners for buttons /// 
+/// CREATE EVENT LISTENERS FOR EACH BUTTON ///  
 
-$('.playButton').on('click', () => {
+$('#playButton').on('click', () => {
   
+  maChao.playIncrease();
 
 })
 
-$('.sleepButton').on('click', () => {
+$('#sleepButton').on('click', () => {
   
+  maChao.sleepinessDecrease(); 
 
 })
 
-$('.foodButton').on('click', () => {
-  
+$('#foodButton').on('click', () => {
+
+  maChao.hungerIncrease();
+
 
 })
 
-
+/// CREATE EVENT LISTENERS FOR EACH BUTTON /// 
 
 
 
