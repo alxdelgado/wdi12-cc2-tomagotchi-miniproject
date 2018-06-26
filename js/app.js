@@ -77,13 +77,19 @@ console.log(blueGlaucus);
 /// Create event listeners for buttons /// 
 
 $('.playButton').on('click', () => {
-  if ('clicked', )
+  
 
 })
 
+$('.sleepButton').on('click', () => {
+  
 
+})
 
+$('.foodButton').on('click', () => {
+  
 
+})
 
 
 
