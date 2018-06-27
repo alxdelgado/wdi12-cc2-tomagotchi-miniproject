@@ -147,10 +147,11 @@ const timer = setInterval(() => {
 
     clearInterval(timer);
 
-    window.alert('Bojack has died!') 
+    window.alert('Bojack has died!');
+
+    $('img').attr('src', 'https://media.giphy.com/media/Fpd4KfGP8VOAE/giphy.gif');
 
     
-
   }
 
 
