@@ -1,14 +1,29 @@
 body {
-  background-color: #E2F4FC;  
+
+  background:rgba(0,0,0,0.91);
+  text-align: center;  
 
 }
 
 h1 {
   text-align: center;
-  font-family: sans-serif; 
+  font-family: sans-serif;
+  color: #D08743; 
+  display: inline-flex;
   
 
 }
+
+
+form {
+
+  display: ;
+}
+
+
+
+
+
 
 /*img{
 
@@ -21,14 +36,11 @@ h1 {
 
 
 
-
-
-
-#dynastyWarrior {
-  border-radius: 100px; 
+#bojack {
+  border-radius: 50px; 
   margin: 10%;
   width: 30%;
-  /*display: inline-flex;*/
+  display: inline-flex;
 
   
 

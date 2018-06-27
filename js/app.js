@@ -30,59 +30,101 @@ class MyCharacter {
   }
 
 
-  goToSleep(){
+  getSleepier(){
     // this.setInterval([2000]);
     this.sleep++
-    $('.sleepBtn').text('Sleep:' + this.sleep); 
+    $('.sleepBtn').text(' Sleep: ' + this.sleep); 
     
-
   }
 
-  playTime(){
+  getSleepierDecrease(){
+    this.sleep--
+    $('.sleepBtn').text(' Sleep: ' + this.sleep);
+  }
+
+  getMoreBored(){
     // this.setInterval([2000]);  
     this.boredom++
-    $('.playBtn').text('Exercise:' + this.boredom);
+    $('.playBtn').text(' Bored: ' + this.boredom);
+  }
+
+  getMoreBoredDecrease (){
+    this.boredom--
+    $('.playBtn').text(' Bored: ' + this.boredom);
   }
 
   hungerIncrease(){
     // if(time % 5 === 0){
       this.hunger++
-      $('.foodBtn').text('Hunger:' + this.hunger)
+      $('.foodBtn').text(' Hunger: ' + this.hunger);
 
     // } 
   }
   hungerDecrease() {
     this.hunger--
+    $('.foodBtn').text(' Hunger: ' + this.hunger);
 
+  }
+
+  renderCharacter(){
+    $('ul').append('<li> ' + this.name + '</li>'); 
   }
 
 };
 
-const maChao = new MyCharacter('maChao', 0, 0, 0, 0);
+const boJack = new MyCharacter('Bojack', 0, 0, 0, 0);
 
 // console.log(maChao);
 
 /// CREATE CHARACTER CLASS ///
 
+/// CREATE FORM/INPUT BOX /// 
+
+$('form').on('submit', (e) => {
+
+  e.preventDefault(); 
+  const newCharacter = $('#changename-input').val(); 
+  boJack.renderCharacter(); 
+
+
+})
+
+
+/// CREATE FORM/INPUT BOX ///
+
+
+
 
 /// CREATE EVENT LISTENERS FOR EACH BUTTON ///  
 
-
+// this is the event listener for the play button. //
 $('#playButton').on('click', (e) => {
+
+  // display picture of bojack running // 
   
-  maChao.playTime();
+  
+
+  // calling playTime increase the amount of 'Exercise' // 
+  boJack.getMoreBoredDecrease();
 
 })
 
+// this is the event listener for the sleep button. //
 $('#sleepButton').on('click', (e) => {
+
+  // display picture of bojack sleeping // 
   
-  maChao.goToSleep(); 
+  // calling 'goToSleep' increases the amount of sleep time. // 
+  boJack.getSleepierDecrease(); 
 
 })
 
+// this is the event listener for the food button. //
 $('#foodButton').on('click', (e) => {
 
-  maChao.hungerDecrease(); 
+  // display picture of bojack hungry // 
+
+  boJack.hungerDecrease(); 
 
 })
 
@@ -90,27 +132,50 @@ $('#foodButton').on('click', (e) => {
 
 
 
+/// SET INTERVAL TIMER ///  
+
 const timer = setInterval(() => {
-  time++ 
+  time++;
   console.log(time); 
-  maChao.hungerIncrease()
-  if(time === 10) {
+  
+  boJack.hungerIncrease();
+  boJack.getMoreBored();
+  boJack.getSleepier();
+
+  if (boJack.hunger >= 10 || boJack.sleep >= 10 || boJack.boredom >= 10){
+
+
     clearInterval(timer);
+
+    window.alert('Bojack has died!') 
+
+    
+
   }
 
-  maChao.playTime()
-  if(time === 10){
-    clearInterval(timer);
-  }
 
-  maChao.goToSleep()
-  if(time === 10){
-    clearInterval(timer);
-  }
+
+
+  // instead of time, check for hunger >=10, then he's dead (which means tell user and stop timer)
+  // if(time === 10) { 
+  //   clearInterval(timer);
+        // tell user he's dead
+  // }
+
+  // 
+  // if(time === 10){
+  //   clearInterval(timer);
+  // }
+
+  // if(time === 10){
+  //   clearInterval(timer);
+  // }
+
+
  
-}, 1000); 
+}, 2000); 
 
-
+/// SET INTERVAL TIMER /// 
 
 
 
