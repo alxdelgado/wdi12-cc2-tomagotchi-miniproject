@@ -3,7 +3,7 @@ console.log('JS is working');
 //// Global Scope ////
 
 
-
+let time = 0;
 
 
 
@@ -11,10 +11,10 @@ console.log('JS is working');
 /// CREATE CHARACTER CLASS /// 
 
 class MyCharacter {
-  constructor (name, sleepiness, play, hunger, age){
+  constructor (name, sleep, boredom, hunger, age){
     this.name = name;
-    this.sleepiness = sleepiness;
-    this.play = play;
+    this.sleep = sleep;
+    this.boredom = boredom;
     this.hunger = hunger;
     this.age = age;
   }
@@ -22,48 +22,39 @@ class MyCharacter {
   ageIncrease(){
     // this.setInterval([2000]);
     console.log(this.age); 
-    this.age++
-    if(this.age === 10){
-      console.log('deceased');
-      this.updateDisplayAgeVal(); 
-
+    if(time % 5 === 0){
+      this.age++
+    
     }
 
   }
 
-  name(){
-    // this.setInterval([2000]);
-    console.log(this.name); 
-  }
 
-  sleepinessDecrease(){
+  goToSleep(){
     // this.setInterval([2000]);
-    console.log(this.sleepiness);
-    // this.sleepiness--
-    // if(this.sleepiness === 0){
-    //   window.alert('deceased');
-    // } 
+    this.sleep++
+    $('.sleepBtn').text('Sleep:' + this.sleep); 
+    
 
   }
 
-  playIncrease(){
-    // this.setInterval([2000]); 
-    console.log(this.play); 
-    // this.boredom--
-    // if(this.boredom === 0){
-    //   window.alert('deceased');
-    // }
+  playTime(){
+    // this.setInterval([2000]);  
+    this.boredom++
+    $('.playBtn').text('Exercise:' + this.boredom);
   }
 
   hungerIncrease(){
-    // this.setInterval([2000]);
-    console.log(this.hunger);
-    // this.hunger--
-    // if (this.hunger === 0){
-    //   window.alert('deceased');
-    } 
+    // if(time % 5 === 0){
+      this.hunger++
+      $('.foodBtn').text('Hunger:' + this.hunger)
 
-  
+    // } 
+  }
+  hungerDecrease() {
+    this.hunger--
+
+  }
 
 };
 
@@ -76,22 +67,22 @@ const maChao = new MyCharacter('maChao', 0, 0, 0, 0);
 
 /// CREATE EVENT LISTENERS FOR EACH BUTTON ///  
 
-$('#playButton').on('click', () => {
+
+$('#playButton').on('click', (e) => {
   
-  maChao.playIncrease();
+  maChao.playTime();
 
 })
 
-$('#sleepButton').on('click', () => {
+$('#sleepButton').on('click', (e) => {
   
-  maChao.sleepinessDecrease(); 
+  maChao.goToSleep(); 
 
 })
 
-$('#foodButton').on('click', () => {
+$('#foodButton').on('click', (e) => {
 
-  maChao.hungerIncrease();
-
+  maChao.hungerDecrease(); 
 
 })
 
@@ -99,7 +90,25 @@ $('#foodButton').on('click', () => {
 
 
 
+const timer = setInterval(() => {
+  time++ 
+  console.log(time); 
+  maChao.hungerIncrease()
+  if(time === 10) {
+    clearInterval(timer);
+  }
 
+  maChao.playTime()
+  if(time === 10){
+    clearInterval(timer);
+  }
+
+  maChao.goToSleep()
+  if(time === 10){
+    clearInterval(timer);
+  }
+ 
+}, 1000); 
 
 
 

@@ -1,11 +1,44 @@
+body {
+  background-color: #E2F4FC;  
+
+}
+
+h1 {
+  text-align: center;
+  font-family: sans-serif; 
+  
+
+}
+
+/*img{
+
+  display: block;
+  margin: 0 auto;
+
+
+}*/
+
+
+
+
+
+
+
 #dynastyWarrior {
   border-radius: 100px; 
   margin: 10%;
-  width: 50%;
+  width: 30%;
+  /*display: inline-flex;*/
+
+  
+
+
 }
 
 #formStyle {
   text-align: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  font-family: sans-serif;
+
 
 }
