@@ -168,7 +168,7 @@ const startGame = () => {
       console.log(newCharacter.name + ' has turned 5 years old! ');
     }
    
-  }, 200); 
+  }, 2000); 
 
 } // startGame()
 
