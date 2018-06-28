@@ -72,7 +72,7 @@ class MyCharacter {
 
 };
 
-const boJack = new MyCharacter('Bojack', 0, 0, 0, 0);
+// const newCharacter = new MyCharacter('newCharacter', 0, 0, 0, 0);
 
 // console.log(maChao);
 
@@ -80,11 +80,19 @@ const boJack = new MyCharacter('Bojack', 0, 0, 0, 0);
 
 /// CREATE FORM/INPUT BOX /// 
 
-$('form').on('submit', (e) => {
+const newCharacter = new MyCharacter('name', 0, 0, 0, 0); 
 
+$('#bojackHorseman').on('submit', (e) => {
   e.preventDefault(); 
-  const newCharacter = $('#changename-input').val(); 
-  boJack.renderCharacter(); 
+
+  const characterName = $('#changename-input').val();
+  
+  newCharacter.name = characterName; 
+  
+  
+  console.log(MyCharacter);  
+  newCharacter.renderCharacter(); 
+  startGame();
 
 
 })
@@ -100,31 +108,31 @@ $('form').on('submit', (e) => {
 // this is the event listener for the play button. //
 $('#playButton').on('click', (e) => {
 
-  // display picture of bojack running // 
+  // display picture of newCharacter running // 
   
   
 
   // calling playTime increase the amount of 'Exercise' // 
-  boJack.getMoreBoredDecrease();
+  newCharacter.getMoreBoredDecrease();
 
 })
 
 // this is the event listener for the sleep button. //
 $('#sleepButton').on('click', (e) => {
 
-  // display picture of bojack sleeping // 
+  // display picture of newCharacter sleeping // 
   
   // calling 'goToSleep' increases the amount of sleep time. // 
-  boJack.getSleepierDecrease(); 
+  newCharacter.getSleepierDecrease(); 
 
 })
 
 // this is the event listener for the food button. //
 $('#foodButton').on('click', (e) => {
 
-  // display picture of bojack hungry // 
+  // display picture of newCharacter hungry // 
 
-  boJack.hungerDecrease(); 
+  newCharacter.hungerDecrease(); 
 
 })
 
@@ -133,23 +141,25 @@ $('#foodButton').on('click', (e) => {
 
 
 /// SET INTERVAL TIMER ///  
-
-const timer = setInterval(() => {
+const startGame = () => {
+  const timer = setInterval(() => {
   time++;
   console.log(time); 
   
-  boJack.hungerIncrease();
-  boJack.getMoreBored();
-  boJack.getSleepier();
+  newCharacter.hungerIncrease();
+  newCharacter.getMoreBored();
+  newCharacter.getSleepier();
 
-  if (boJack.hunger >= 10 || boJack.sleep >= 10 || boJack.boredom >= 10){
+  if (newCharacter.hunger >= 10 || newCharacter.sleep >= 10 || newCharacter.boredom >= 10){
 
 
     clearInterval(timer);
 
-    window.alert('Bojack has died!');
-
     $('img').attr('src', 'https://media.giphy.com/media/Fpd4KfGP8VOAE/giphy.gif');
+
+    window.alert(newCharacter.name);
+
+
 
     
   }
@@ -181,6 +191,8 @@ const timer = setInterval(() => {
 
 
 
+
+}
 
 
 
