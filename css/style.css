@@ -11,30 +11,15 @@ h1 {
   color: #D08743; 
   display: inline-flex;
   
-
 }
 
-
-form {
-
-  display: ;
-}
-
-
-
-
-
-
-/*img{
-
-  display: block;
+#bojackHorseman {
+  /*display: inline-flex;*/
   margin: 0 auto;
+  width: 80%;
 
 
-}*/
-
-
-
+}
 
 #bojack {
   border-radius: 50px; 
@@ -51,6 +36,5 @@ form {
   text-align: center;
   justify-content: space-around;
   font-family: sans-serif;
-
 
 }

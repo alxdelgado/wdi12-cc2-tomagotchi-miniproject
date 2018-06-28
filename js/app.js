@@ -1,12 +1,14 @@
 console.log('JS is working'); 
 
-//// Global Scope ////
+//// GLOBAL SCOPE ////
 
 
 let time = 0;
+window.alert('Enter Name');
 
 
 
+//// GLOBAL SCOPE ////
 
 /// CREATE CHARACTER CLASS /// 
 
@@ -19,15 +21,15 @@ class MyCharacter {
     this.age = age;
   }
   
-  ageIncrease(){
-    // this.setInterval([2000]);
-    console.log(this.age); 
-    if(time % 5 === 0){
-      this.age++
+  // ageIncrease(){
+  //   // this.setInterval([2000]);
+  //   console.log(this.age); 
+  //   if(time % 5 === 0){
+  //     this.age++
     
-    }
+  //   }
 
-  }
+  // }
 
 
   getSleepier(){
@@ -72,9 +74,6 @@ class MyCharacter {
 
 };
 
-// const newCharacter = new MyCharacter('newCharacter', 0, 0, 0, 0);
-
-// console.log(maChao);
 
 /// CREATE CHARACTER CLASS ///
 
@@ -108,9 +107,7 @@ $('#bojackHorseman').on('submit', (e) => {
 // this is the event listener for the play button. //
 $('#playButton').on('click', (e) => {
 
-  // display picture of newCharacter running // 
-  
-  
+
 
   // calling playTime increase the amount of 'Exercise' // 
   newCharacter.getMoreBoredDecrease();
@@ -120,7 +117,6 @@ $('#playButton').on('click', (e) => {
 // this is the event listener for the sleep button. //
 $('#sleepButton').on('click', (e) => {
 
-  // display picture of newCharacter sleeping // 
   
   // calling 'goToSleep' increases the amount of sleep time. // 
   newCharacter.getSleepierDecrease(); 
@@ -130,7 +126,7 @@ $('#sleepButton').on('click', (e) => {
 // this is the event listener for the food button. //
 $('#foodButton').on('click', (e) => {
 
-  // display picture of newCharacter hungry // 
+   
 
   newCharacter.hungerDecrease(); 
 
@@ -150,18 +146,16 @@ const startGame = () => {
   newCharacter.getMoreBored();
   newCharacter.getSleepier();
 
-  if (newCharacter.hunger >= 10 || newCharacter.sleep >= 10 || newCharacter.boredom >= 10){
-
-
+  // test for death
+  if (newCharacter.hunger >= 10 || newCharacter.sleep >= 10 || newCharacter.boredom >= 10) {
     clearInterval(timer);
-
     $('img').attr('src', 'https://media.giphy.com/media/Fpd4KfGP8VOAE/giphy.gif');
+    window.alert(newCharacter.name + ' is dead! ');
+  } 
 
-    window.alert(newCharacter.name);
-
-
-
-    
+  // aging check
+  if (time >= 5) {
+    console.log(newCharacter.name + ' has turned 5 years old! ')
   }
 
 
