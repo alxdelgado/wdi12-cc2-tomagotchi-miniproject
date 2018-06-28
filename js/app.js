@@ -19,6 +19,9 @@ class MyCharacter {
     this.boredom = boredom;
     this.hunger = hunger;
     this.age = age;
+    this.morphed = false;
+
+
   }
   
   // ageIncrease(){
@@ -134,59 +137,40 @@ $('#foodButton').on('click', (e) => {
 
 /// CREATE EVENT LISTENERS FOR EACH BUTTON /// 
 
-
+let morphed = false;
 
 /// SET INTERVAL TIMER ///  
 const startGame = () => {
   const timer = setInterval(() => {
   time++;
-  console.log(time); 
-  
-  newCharacter.hungerIncrease();
-  newCharacter.getMoreBored();
-  newCharacter.getSleepier();
+    console.log(time); 
+    
+    newCharacter.hungerIncrease();
+    newCharacter.getMoreBored();
+    newCharacter.getSleepier();
 
-  // test for death
-  if (newCharacter.hunger >= 10 || newCharacter.sleep >= 10 || newCharacter.boredom >= 10) {
-    clearInterval(timer);
-    $('img').attr('src', 'https://media.giphy.com/media/Fpd4KfGP8VOAE/giphy.gif');
-    window.alert(newCharacter.name + ' is dead! ');
-  } 
+    // test for death
+    if (newCharacter.hunger >= 10 || newCharacter.sleep >= 10 || newCharacter.boredom >= 10) {
+      clearInterval(timer);
+      $('img').attr('src', 'https://media.giphy.com/media/Fpd4KfGP8VOAE/giphy.gif');
+      window.alert(newCharacter.name + ' is dead! ');
+    } 
 
-  // aging check
-  if (time >= 5) {
-    console.log(newCharacter.name + ' has turned 5 years old! ')
-  }
+    // aging check
+    if (time >= 5 && !newCharacter.morphed) { 
+      // console.log("hey")
+      // creating text on the page that he has turned 5 years old //
+      const $h2 = $('<h2/>');
+      $h2.text(newCharacter.name + ' has turned 5 years old! '); 
+      $('#message').append($h2)
+      newCharacter.morphed = true; 
+      
+      console.log(newCharacter.name + ' has turned 5 years old! ');
+    }
+   
+  }, 200); 
 
-
-
-
-  // instead of time, check for hunger >=10, then he's dead (which means tell user and stop timer)
-  // if(time === 10) { 
-  //   clearInterval(timer);
-        // tell user he's dead
-  // }
-
-  // 
-  // if(time === 10){
-  //   clearInterval(timer);
-  // }
-
-  // if(time === 10){
-  //   clearInterval(timer);
-  // }
-
-
- 
-}, 2000); 
-
-/// SET INTERVAL TIMER /// 
-
-
-
-
-
-}
+} // startGame()
 
 
 

@@ -38,3 +38,11 @@ h1 {
   font-family: sans-serif;
 
 }
+
+#message{
+  text-align: center;
+  font-family: sans-serif;
+  color: #D08743; 
+  display: inline-flex;
+
+}
